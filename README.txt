@@ -1,19 +1,47 @@
 === ROUTE-TO-PA Datalets ===
-Tags: open data,route to pa,datalet
+Contributors: lucavicidomini
+Tags: open data, route to pa, datalet
 Requires at least: 4.0
-Tested up to: 4.5.3
+Tested up to: 4.6.1
 Stable tag: trunk
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
+Integrates a SPOD Datalet into a Wordpress article.
+
 == Description ==
 
-Integrates a Datalet into a Wordpress article.
+A datalet is a visualization made into SPOD (Social Platform for Open Data)
+that leverages open data publicly avaiable (on CKAN or TET, for instance).
 
-For further information please visit http://routetopa.eu.
+SPOD, datalets and TET are part of the HORIZON-2020
+[ROUTE-TO-PA project](http://routetopa.eu/).
+
+This project has received funding from _European Union's Horizon 2020 research
+and innovation programme_ under grant agreement No 645860.
 
 == Installation ==
-Put the plugin into directory `wp_content/routetopa-datalet` and install via Wordpress' administration panel
+Put the plugin into directory `wp_content/plugins/routetopa-datalet` and activate via Wordpress' administration panel
+
+== Frequently Asked Questions ==
+
+= Where di I get help? =
+
+You can join the community (or get info) at the SPOD main instance: http://spod.routetopa.eu/
+
+== Changelog ==
+
+= 1.0 =
+* Add a button on Wordpress editor
+* Allow pasting datalets exported as HTML from SPOD
+
+= 0.1 =
+* First version
+
+== Upgrade Notice ==
+
+= 1.0 =
+This version is much easier to use.
 
 == License ==
 The software is distributed under MIT license.

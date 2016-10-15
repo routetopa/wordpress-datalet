@@ -7,9 +7,9 @@
 Plugin Name: ROUTE-TO-PA Datalets
 Plugin URI: https://github.com/routetopa/wordpress-datalet
 Version: 1.0
-Description: Allow editors to add a ROUTE-TO-PA Datalet made in SPOD into a Wordpress article or page.
+Description: Integrates a SPOD Datalet into a Wordpress article.
 Author: Luca Vicidomini
-Author URI: http://vicidomini.net/
+Author URI: http://routetopa.eu/
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 */
