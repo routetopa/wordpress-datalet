@@ -1,0 +1,7 @@
+i.mce-i-datalet {
+	font: normal 20px/1 'dashicons';
+}
+
+i.mce-i-datalet:before {
+    content: "\f185";
+}
