@@ -31,6 +31,9 @@ You can join the community (or get info) at the SPOD main instance: http://spod.
 
 == Changelog ==
 
+= 1.1 =
+* Datalets are Base64-encoded in order to allow users without administrator privileges to embded them.
+
 = 1.0 =
 * Add a button on Wordpress editor
 * Allow pasting datalets exported as HTML from SPOD
