@@ -116,6 +116,10 @@ class RouteToPaDatalet {
 				$output .= "<link rel=\"import\" href=\"{$url}\" />";
 			}
 		}
+		if ( isset( $atts[ 'v' ] ) && '2' == $atts[ 'v' ] ) {
+		    // Use Base64-encoded datalets without breaking compatibility
+		    $content = urldecode ( base64_decode( $content ) );
+        }
 		$output .= $content;
 		return $output;
 	} // render_shortcode_datalet

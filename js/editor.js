@@ -52,8 +52,9 @@
                 if ( imports.length > 0 ) {
                     output += ' import="' + imports.join( '|' ) + '"';
                 }
+                output += ' v="2"';
                 output += ']';
-                output += datalets.join( '' );
+                output += btoa(encodeURIComponent(datalets.join( '' )));
                 output += '[/datalet]';
                 ed.execCommand( 'mceInsertRawHTML', 0, output );
             }); // addCommand datalet
