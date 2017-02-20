@@ -2,7 +2,7 @@
 Contributors: lucavicidomini
 Tags: open data, route to pa, datalet
 Requires at least: 4.0
-Tested up to: 4.6.1
+Tested up to: 4.7.2
 Stable tag: trunk
 License: MIT
 License URI: https://opensource.org/licenses/MIT
