@@ -31,8 +31,11 @@ You can join the community (or get info) at the SPOD main instance: http://spod.
 
 == Changelog ==
 
+= 1.4 =
+* Lazy load compatibility with Firefox
+
 = 1.3.1 =
-Compatibility with Wordpress 4.9.6
+* Compatibility with Wordpress 4.9.6
 
 = 1.3 =
 * Lazy load datalets
