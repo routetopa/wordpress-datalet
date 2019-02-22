@@ -25,11 +25,17 @@ Put the plugin into directory `wp_content/plugins/routetopa-datalet` and activat
 
 == Frequently Asked Questions ==
 
-= Where di I get help? =
+= Where do I get help? =
 
 You can join the community (or get info) at the SPOD main instance: http://spod.routetopa.eu/
 
 == Changelog ==
+
+= 1.3 =
+* Lazy load datalets
+
+= 1.2 =
+* Show placeholder image in Visual Editor
 
 = 1.1 =
 * Datalets are Base64-encoded in order to allow users without administrator privileges to embded them.

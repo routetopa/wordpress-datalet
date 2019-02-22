@@ -6,7 +6,7 @@
 /*
 Plugin Name: ROUTE-TO-PA Datalets
 Plugin URI: https://github.com/routetopa/wordpress-datalet
-Version: 1.2
+Version: 1.3
 Description: Integrates a SPOD Datalet into a Wordpress article.
 Author: Luca Vicidomini
 Author URI: http://routetopa.eu/
@@ -37,6 +37,10 @@ class RouteToPaDatalet {
 	 * @return void
 	 */
 	public function insert_scripts() {
+        //wp_enqueue_script('webcomponents', 'https://cdn.jsdelivr.net/webcomponentsjs/0.7.16/webcomponents-lite.min.js', false);
+        //wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-2.1.4.min.js', false);
+        wp_enqueue_script('rtpa-lazy', plugins_url( 'js/lazy.js', __FILE__ ), true);
+        wp_enqueue_style('rtpa-lazy-css', plugins_url( 'css/lazy.css', __FILE__ ));
 		echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/webcomponentsjs/0.7.16/webcomponents-lite.min.js"></script>';
 		echo '<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>';
 	} // insert_scripts
@@ -121,6 +125,9 @@ class RouteToPaDatalet {
 		    $content = urldecode ( base64_decode( $content ) );
         }
 		$output .= $content;
+
+        $output = '<div class="rtpa-lazy rtpa-hide" data-datalet="'.rawurlencode($output).'">Click to load...</div>';
+
 		return $output;
 	} // render_shortcode_datalet
 
