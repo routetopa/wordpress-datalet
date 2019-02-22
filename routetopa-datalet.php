@@ -17,6 +17,7 @@ License URI: https://opensource.org/licenses/MIT
 defined( 'ABSPATH' ) or die( '' );
 
 class RouteToPaDatalet {
+	const VERSION = '1.4';
 
 	/**
 	 * Register Wordpress' hooks and filters.
@@ -37,14 +38,14 @@ class RouteToPaDatalet {
 	 * @return void
 	 */
 	public function insert_frontend_scripts() {
-        wp_enqueue_script('webcomponents', plugins_url( 'js/webcomponents-lite.min.js', __FILE__ ), false);
-        wp_enqueue_script('webcomponents-htmlmports', plugins_url( 'js/html-imports.min.js', __FILE__ ), array('webcomponents'));
-        wp_enqueue_script('rtpa-lazy', plugins_url( 'js/lazy.js', __FILE__ ), array('jquery'));
-        wp_enqueue_style('rtpa-lazy-css', plugins_url( 'css/lazy.css', __FILE__ ));
+        wp_enqueue_script('webcomponents', plugins_url( 'js/webcomponents-lite.min.js', __FILE__ ), false, self::VERSION);
+        wp_enqueue_script('webcomponents-htmlmports', plugins_url( 'js/html-imports.min.js', __FILE__ ), array('webcomponents'), self::VERSION);
+        wp_enqueue_script('rtpa-lazy', plugins_url( 'js/lazy.js', __FILE__ ), array('jquery'), false, self::VERSION);
+        wp_enqueue_style('rtpa-lazy-css', plugins_url( 'css/lazy.css', __FILE__ ), false, self::VERSION);
 	} // insert_scripts
 
 	public function insert_backend_scripts() {
-		wp_enqueue_style( 'routetopa-datalet', plugins_url( 'css/editor.css', __FILE__ ) );
+		wp_enqueue_style( 'routetopa-datalet', plugins_url( 'css/editor.css', __FILE__ ), false, self::VERSION );
 	}
 
 	/**
