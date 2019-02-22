@@ -27,6 +27,14 @@
 
                 var dom = document.createElement( 'div' );
                 dom.innerHTML = code;
+
+		// 1.4 Compatibility with new export method (iFrame)
+		if (dom.children.length && dom.children[0].nodeName == 'IFRAME') {
+			var node = dom.children[0];
+			dom.innerHTML = node.getAttribute('srcdoc');
+		}
+		// End of 1.4
+
                 for ( i = 0; i < dom.children.length; i++ ) {
                     var node = dom.children[ i ];
                     if ( 'SCRIPT' == node.nodeName ) {
