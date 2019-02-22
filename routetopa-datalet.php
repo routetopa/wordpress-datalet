@@ -22,13 +22,13 @@ class RouteToPaDatalet {
 	 * Register Wordpress' hooks and filters.
 	 */
 	public function __construct() {
-		add_action( 'wp_head', array( $this, 'insert_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'insert_backend_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'insert_frontend_scripts' ) );
 		add_filter( 'mce_buttons', array( $this, 'register_editor_buttons' ) );
 		add_filter( 'mce_external_plugins', array( $this, 'add_editor_buttons' ) );
 		add_filter( 'no_texturize_shortcodes', array( $this, 'get_preserved_shortcodes' ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'alter_editor_settings') );
 		add_shortcode( 'datalet', array( $this, 'render_shortcode_datalet' ) );
-		wp_enqueue_style( 'routetopa-datalet', plugins_url( 'css/editor.css', __FILE__ ) );
 	} // __construct
 
 	/**
@@ -36,14 +36,16 @@ class RouteToPaDatalet {
 	 * 
 	 * @return void
 	 */
-	public function insert_scripts() {
-        //wp_enqueue_script('webcomponents', 'https://cdn.jsdelivr.net/webcomponentsjs/0.7.16/webcomponents-lite.min.js', false);
-        //wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-2.1.4.min.js', false);
-        wp_enqueue_script('rtpa-lazy', plugins_url( 'js/lazy.js', __FILE__ ), true);
+	public function insert_frontend_scripts() {
+        wp_enqueue_script('webcomponents', plugins_url( 'js/webcomponents-lite.min.js', __FILE__ ), false);
+        wp_enqueue_script('webcomponents-htmlmports', plugins_url( 'js/html-imports.min.js', __FILE__ ), array('webcomponents'));
+        wp_enqueue_script('rtpa-lazy', plugins_url( 'js/lazy.js', __FILE__ ), array('jquery'));
         wp_enqueue_style('rtpa-lazy-css', plugins_url( 'css/lazy.css', __FILE__ ));
-		echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/webcomponentsjs/0.7.16/webcomponents-lite.min.js"></script>';
-		echo '<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>';
 	} // insert_scripts
+
+	public function insert_backend_scripts() {
+		wp_enqueue_style( 'routetopa-datalet', plugins_url( 'css/editor.css', __FILE__ ) );
+	}
 
 	/**
 	 * Show the "Datalet" button in TinyMCE.
