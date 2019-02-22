@@ -64,8 +64,9 @@
                 output += ']';
                 output += btoa(encodeURIComponent(datalets.join( '' )));
                 output += '[/datalet]';
-//                ed.execCommand( 'mceInsertRawHTML', 0, output );
-                ed.execCommand( 'mceInsertContent', 0, output );
+
+                if ( ! ed.execCommand( 'mceInsertRawHTML', 0, output ) )
+                	ed.execCommand( 'mceInsertContent', 0, output )
             }); // addCommand datalet
 
             ed.on( 'ResolveName', function( event ) {

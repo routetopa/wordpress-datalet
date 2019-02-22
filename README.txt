@@ -2,7 +2,7 @@
 Contributors: lucavicidomini
 Tags: open data, route to pa, datalet
 Requires at least: 4.0
-Tested up to: 4.7.2
+Tested up to: 4.9.6
 Stable tag: trunk
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -30,6 +30,9 @@ Put the plugin into directory `wp_content/plugins/routetopa-datalet` and activat
 You can join the community (or get info) at the SPOD main instance: http://spod.routetopa.eu/
 
 == Changelog ==
+
+= 1.3.1 =
+Compatibility with Wordpress 4.9.6
 
 = 1.3 =
 * Lazy load datalets
