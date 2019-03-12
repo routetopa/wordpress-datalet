@@ -6,7 +6,7 @@
 /*
 Plugin Name: ROUTE-TO-PA Datalets
 Plugin URI: https://github.com/routetopa/wordpress-datalet
-Version: 1.4
+Version: 1.4.1
 Description: Integrates a SPOD Datalet into a Wordpress article.
 Author: Luca Vicidomini
 Author URI: http://routetopa.eu/
@@ -17,7 +17,7 @@ License URI: https://opensource.org/licenses/MIT
 defined( 'ABSPATH' ) or die( '' );
 
 class RouteToPaDatalet {
-	const VERSION = '1.4';
+	const VERSION = '1.4.1';
 
 	/**
 	 * Register Wordpress' hooks and filters.
@@ -34,11 +34,11 @@ class RouteToPaDatalet {
 
 	/**
 	 * Enqueue scripts needed for datalets.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function insert_frontend_scripts() {
-        wp_enqueue_script('webcomponents', plugins_url( 'js/webcomponents-lite.min.js', __FILE__ ), false, self::VERSION);
+        wp_enqueue_script('webcomponents', plugins_url( 'js/webcomponents-lite.min.js', __FILE__ ), array('rtpa-lazy'), self::VERSION);
         wp_enqueue_script('webcomponents-htmlmports', plugins_url( 'js/html-imports.min.js', __FILE__ ), array('webcomponents'), self::VERSION);
         wp_enqueue_script('rtpa-lazy', plugins_url( 'js/lazy.js', __FILE__ ), array('jquery'), false, self::VERSION);
         wp_enqueue_style('rtpa-lazy-css', plugins_url( 'css/lazy.css', __FILE__ ), false, self::VERSION);
@@ -50,7 +50,7 @@ class RouteToPaDatalet {
 
 	/**
 	 * Show the "Datalet" button in TinyMCE.
-	 * 
+	 *
 	 * @param  array $buttons Array of TinyMCE buttons
 	 * @return array		  Updated array of TinyMCE buttons
 	 */
@@ -61,7 +61,7 @@ class RouteToPaDatalet {
 
 	/**
 	 * Add our JavaScript plugin to TinyMCE.
-	 * 
+	 *
 	 * @param  array $plugin_array Array of TinyMCE plugins
 	 * @return array			   The updated array of plugins
 	 */
@@ -72,7 +72,7 @@ class RouteToPaDatalet {
 
 	/**
 	 * Disable WP_Texturized in our shortcodes
-	 * 
+	 *
 	 * @param  array $shortcodes The array of Wordpress shortcodes
 	 * @return array			 Updated array of enabled shortcodes
 	 */
@@ -83,7 +83,7 @@ class RouteToPaDatalet {
 
 	/**
 	 * Accomodates TinyMCE settings for our needs.
-	 * 
+	 *
 	 * @param  array $settings TinyMCE settings
 	 * @return array		   Updated TinyMCE settings
 	 */
@@ -104,7 +104,7 @@ class RouteToPaDatalet {
 
 	/**
 	 * Render the [datalet] shortcode when an article is shown.
-	 * 
+	 *
 	 * @param  array $atts	 A key-value array containing attributes of the shortcode
 	 * @param  string $content The content of the shortcode
 	 * @return String		  The HTML string of the rendered shortcode
@@ -136,4 +136,4 @@ class RouteToPaDatalet {
 
 } // class RouteToPaDatalet
 
-new RouteToPaDatalet(); 
+new RouteToPaDatalet();

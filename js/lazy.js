@@ -1,4 +1,7 @@
 jQuery(document).ready(function ($) {
+    // The $ variable is needed by datalets
+    window.$ = $
+
     $('.rtpa-lazy.rtpa-hide').click(function() {
         if ($(this).hasClass('rtpa-hide')) {
             var datalet = $(decodeURIComponent($(this).data('datalet')));
